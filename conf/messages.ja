@@ -1,4 +1,4 @@
-site.tile=アイドルデータベース
+site.title=アイドルデータベース
 
 wikipedia.name=モデル名
 wikipedia.kana=ふりがな
@@ -11,3 +11,12 @@ wikipedia.bust=バスト
 wikipedia.waist=ウエスト
 wikipedia.hip=ヒップ
 wikipedia.cup=カップ
+
+param.name=名前
+param.birthr=生年月日
+param.height=身長
+param.weight=体重
+param.bust=バスト
+param.waist=ウエスト
+param.hip=ヒップ
+param.cup=カップ

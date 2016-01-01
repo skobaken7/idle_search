@@ -1,0 +1,6 @@
+@(elements: helper.FieldElements)
+
+<div class="form-group">
+  <label for="@elements.id">@elements.messages("param." + elements.name)</label>
+  @elements.input
+</div>

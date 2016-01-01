@@ -1,0 +1,22 @@
+@(form: Form[utils.Utils.Param], idles: List[models.Idle])(implicit messages: Messages)
+
+@import utils.Utils._
+
+@main{
+<div class="jumbotron">
+  @helper.form(action = routes.Application.search) {
+    @helper.input(form("name")) { (id, name, value, htmlArgs) => 
+      <input type="text" class="form-control" id="@id" name="@name" value="@value">
+    }
+  }
+
+<div class="row marketing">
+  <div class="col-xs-6 col-md-3">
+    @for(idle <- idles) {
+      <a href="#" class="thumbnail">
+        @idle.name
+      </a>
+    }
+  </div>
+</div>
+}

@@ -5,6 +5,7 @@ import play.api.data.format._
 import play.api.data.FormError
 import play.api.data.Forms._
 import play.api.data.Mapping
+import views.html.helper.FieldConstructor
 
 object Utils {
   type Range[A] = (Option[A], Option[A])  
@@ -35,4 +36,6 @@ object Utils {
     def unbind(key: String, value: Char) = Map(key -> value.toString)
   }
   val char = of[Char]
+
+  implicit val fieldConstructor = FieldConstructor(views.html.fieldConstructor.f)
 }
