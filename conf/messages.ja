@@ -1,0 +1,13 @@
+site.tile=アイドルデータベース
+
+wikipedia.name=モデル名
+wikipedia.kana=ふりがな
+wikipedia.birth_year=生年
+wikipedia.birth_month=生月
+wikipedia.birth_day=生日
+wikipedia.height=身長
+wikipedia.weight=体重
+wikipedia.bust=バスト
+wikipedia.waist=ウエスト
+wikipedia.hip=ヒップ
+wikipedia.cup=カップ
