@@ -51,7 +51,10 @@ trait IdleTable extends HasDatabaseConfig[JdbcProfile] {
         andThen(filterByRange(params.hip, _.hip)).
         andThen(filterByRange(params.cup, _.cup))(name_q)
 
-      db.run(q.result)
+      val page = params.page.getOrElse(1)
+      val page_q = q.drop((page-1)*Param.COUNT_PER_PAGE).take(Param.COUNT_PER_PAGE)
+
+      db.run(page_q.result)
     }
     
     def filterByRange[A : BaseTypedType](range: Range[A], col: Idles => slick.lifted.Rep[A]) : IdleQuery => IdleQuery = q => {

@@ -11,6 +11,7 @@ object Utils {
   type Range[A] = (Option[A], Option[A])  
   
   case class Param(
+    page: Option[Int],
     name: Option[String],
     birth: Range[Date],
     height: Range[Int],
@@ -26,6 +27,10 @@ object Utils {
       case (Some(from), None)     => (Some(new java.sql.Date(from.getTime)), None)
       case (None,       None)     => (None, None)
     }
+  }
+
+  object Param {
+    val COUNT_PER_PAGE = 100
   }
 
   private implicit def charFormat: Formatter[Char] = new Formatter[Char] {
