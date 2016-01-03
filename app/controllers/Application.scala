@@ -25,7 +25,6 @@ class Application @Inject()(val messagesApi: MessagesApi) extends Controller wit
   
   val form : Form[Param] = Form(
     mapping(
-      "page"   -> optional(number),
       "name"   -> optional(text),
       "birth"  -> tuple("from" -> optional(date),   "to" -> optional(date)),
       "height" -> tuple("from" -> optional(number), "to" -> optional(number)),
