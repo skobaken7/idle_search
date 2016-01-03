@@ -27,20 +27,21 @@ class Application @Inject()(val messagesApi: MessagesApi) extends Controller wit
     mapping(
       "page"   -> optional(number),
       "name"   -> optional(text),
-      "birth"  -> tuple("birth_from"  -> optional(date),   "birth_to"  -> optional(date)),
-      "height" -> tuple("height_from" -> optional(number), "height_to" -> optional(number)),
-      "weight" -> tuple("weight_from" -> optional(number), "weight_to" -> optional(number)),
-      "bust"   -> tuple("bust_from"   -> optional(number), "bust_to"   -> optional(number)),
-      "waist"  -> tuple("waist_from"  -> optional(number), "waist_to"  -> optional(number)),
-      "hip"    -> tuple("hip_from"    -> optional(number), "hip_to"    -> optional(number)),
-      "cup"    -> tuple("cup_from"    -> optional(char),   "cup_to"    -> optional(char))
+      "birth"  -> tuple("from" -> optional(date),   "to" -> optional(date)),
+      "height" -> tuple("from" -> optional(number), "to" -> optional(number)),
+      "weight" -> tuple("from" -> optional(number), "to" -> optional(number)),
+      "bust"   -> tuple("from" -> optional(number), "to" -> optional(number)),
+      "waist"  -> tuple("from" -> optional(number), "to" -> optional(number)),
+      "hip"    -> tuple("from" -> optional(number), "to" -> optional(number)),
+      "cup"    -> tuple("from" -> optional(char),   "to" -> optional(char))
     )(Param.apply _)(Param.unapply _)
   )
   
   def search = Action.async { implicit request => 
-    form.bindFromRequest.fold(
+    val boundForm = form.bindFromRequest
+    boundForm.fold(
       formWithErrors => Future.successful(BadRequest(views.html.search(formWithErrors, List[Idle]()))),
-      userData => Future.successful(Ok(views.html.search(form, List[Idle]())))
+      userData => Future.successful(Ok(views.html.search(boundForm, List[Idle]())))
     )
   }
 

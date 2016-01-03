@@ -4,10 +4,115 @@
 
 @main{
 <div class="jumbotron">
-  @helper.form(action = routes.Application.search) {
+  @helper.form(action = routes.Application.search, 'class -> "form-horizontal") {
     @helper.input(form("name")) { (id, name, value, htmlArgs) => 
       <input type="text" class="form-control" id="@id" name="@name" value="@value">
     }
+    @helper.input(form("birth")) { (id, name, value, htmlArgs) => 
+      @helper.input(form(id)("from")) { (id, name, value, htmlArgs) => 
+        <div class="input-group col-sm-6 continue">
+          <span class="input-group-addon">from</span>
+          <input type="text" class="form-control" id="@id" name="@name" value="@value">
+        </div>
+      }
+      @helper.input(form(id)("to")) { (id, name, value, htmlArgs) => 
+        <div class="input-group col-sm-6">
+          <span class="input-group-addon">to</span>
+          <input type="text" class="form-control" id="@id" name="@name" value="@value">
+        </div>
+      }
+    }
+    @helper.input(form("height")) { (id, name, value, htmlArgs) => 
+      @helper.input(form(id)("from")) { (id, name, value, htmlArgs) => 
+        <div class="input-group col-sm-6 continue">
+          <span class="input-group-addon">from</span>
+          <input type="text" class="form-control" id="@id" name="@name" value="@value">
+        </div>
+      }
+      @helper.input(form(id)("to")) { (id, name, value, htmlArgs) => 
+        <div class="input-group col-sm-6">
+          <span class="input-group-addon">to</span>
+          <input type="text" class="form-control" id="@id" name="@name" value="@value">
+        </div>
+      }
+
+    }
+    @helper.input(form("weight")) { (id, name, value, htmlArgs) => 
+      @helper.input(form(id)("from")) { (id, name, value, htmlArgs) => 
+        <div class="input-group col-sm-6 continue">
+          <span class="input-group-addon">from</span>
+          <input type="text" class="form-control" id="@id" name="@name" value="@value">
+        </div>
+      }
+      @helper.input(form(id)("to")) { (id, name, value, htmlArgs) => 
+        <div class="input-group col-sm-6">
+          <span class="input-group-addon">to</span>
+          <input type="text" class="form-control" id="@id" name="@name" value="@value">
+        </div>
+      }
+
+    }
+    @helper.input(form("bust")) { (id, name, value, htmlArgs) => 
+      @helper.input(form(id)("from")) { (id, name, value, htmlArgs) => 
+        <div class="input-group col-sm-6 continue">
+          <span class="input-group-addon">from</span>
+          <input type="text" class="form-control" id="@id" name="@name" value="@value">
+        </div>
+      }
+      @helper.input(form(id)("to")) { (id, name, value, htmlArgs) => 
+        <div class="input-group col-sm-6">
+          <span class="input-group-addon">to</span>
+          <input type="text" class="form-control" id="@id" name="@name" value="@value">
+        </div>
+      }
+
+    }
+    @helper.input(form("waist")) { (id, name, value, htmlArgs) => 
+      @helper.input(form(id)("from")) { (id, name, value, htmlArgs) => 
+        <div class="input-group col-sm-6 continue">
+          <span class="input-group-addon">from</span>
+          <input type="text" class="form-control" id="@id" name="@name" value="@value">
+        </div>
+      }
+      @helper.input(form(id)("to")) { (id, name, value, htmlArgs) => 
+        <div class="input-group col-sm-6">
+          <span class="input-group-addon">to</span>
+          <input type="text" class="form-control" id="@id" name="@name" value="@value">
+        </div>
+      }
+
+    }
+    @helper.input(form("hip")) { (id, name, value, htmlArgs) => 
+      @helper.input(form(id)("from")) { (id, name, value, htmlArgs) => 
+        <div class="input-group col-sm-6 continue">
+          <span class="input-group-addon">from</span>
+          <input type="text" class="form-control" id="@id" name="@name" value="@value">
+        </div>
+      }
+      @helper.input(form(id)("to")) { (id, name, value, htmlArgs) => 
+        <div class="input-group col-sm-6">
+          <span class="input-group-addon">to</span>
+          <input type="text" class="form-control" id="@id" name="@name" value="@value">
+        </div>
+      }
+
+    }
+    @helper.input(form("cup")) { (id, name, value, htmlArgs) => 
+      @helper.input(form(id)("from")) { (id, name, value, htmlArgs) => 
+        <div class="input-group col-sm-6 continue">
+          <span class="input-group-addon">from</span>
+          <input type="text" class="form-control" id="@id" name="@name" value="@value">
+        </div>
+      }
+      @helper.input(form(id)("to")) { (id, name, value, htmlArgs) => 
+        <div class="input-group col-sm-6">
+          <span class="input-group-addon">to</span>
+          <input type="text" class="form-control" id="@id" name="@name" value="@value">
+        </div>
+      }
+    }
+
+    <button type="submit" class="btn btn-primary center-block">@messages("form.submit")</button>
   }
 
 <div class="row marketing">
