@@ -40,7 +40,7 @@ trait IdleTable extends HasDatabaseConfig[JdbcProfile] {
     def find(params: Param) = {
       val name_q = params.name.map { name => 
         val name_like = "%" + name + "%"
-        IdleQuery.filter(t => t.name.like(name_like) && t.kana.like(name_like))
+        IdleQuery.filter(t => t.name.like(name_like) || t.kana.like(name_like))
       }.getOrElse(IdleQuery)
       
       val filter_q = filterByRange(params.birth_sql, _.birth).
