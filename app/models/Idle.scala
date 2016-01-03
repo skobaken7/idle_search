@@ -12,7 +12,7 @@ import utils.Utils._
 import slick.ast.BaseTypedType
 import scala.collection.immutable.Set
 
-case class Idle(id: String, name: String, kana: Option[String], birth: Option[Date], height: Option[Int], weight: Option[Int], bust: Option[Int], waist: Option[Int], hip: Option[Int], cup: Option[Char])
+case class Idle(id: String, name: String, kana: String, birth: Option[Date], height: Option[Int], weight: Option[Int], bust: Option[Int], waist: Option[Int], hip: Option[Int], cup: Option[Char])
 
 trait IdleTable extends HasDatabaseConfig[JdbcProfile] {
   import dbConfig.driver.api._
@@ -31,7 +31,7 @@ trait IdleTable extends HasDatabaseConfig[JdbcProfile] {
     def hip    = column[Int]("hip")
     def cup    = column[Char]("cup")
     
-    def * = (id, name, kana.?, birth.?, height.?, weight.?, bust.?, waist.?, hip.?, cup.?) <> (Idle.tupled, Idle.unapply)
+    def * = (id, name, kana, birth.?, height.?, weight.?, bust.?, waist.?, hip.?, cup.?) <> (Idle.tupled, Idle.unapply)
   }
   
   object Idles {

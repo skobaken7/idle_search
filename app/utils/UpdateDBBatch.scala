@@ -66,7 +66,7 @@ class UpdateDBBatch(messages: Messages) extends DAO {
     case Some(name) => {
       Idles.insertIdle(Idle(
         id, name,
-        grepString(content, messages("wikipedia.kana")),
+        grepString(content, messages("wikipedia.kana")).getOrElse(name),
         grepBirth(content),
         grepInt(content, messages("wikipedia.height")),
         grepInt(content, messages("wikipedia.weight")),
@@ -79,9 +79,12 @@ class UpdateDBBatch(messages: Messages) extends DAO {
 
     case None => ()
   }
+
+  def removeExtraInfo(str: String) = str.replaceAll("<.+?>.*</.+?>", "").replaceAll("　", "")
   
   def grepString(content: String, name: String) = 
-    s"<part><name>${name}</name>=<value>(.*?)</value></part>".r.findFirstMatchIn(content).map(_.group(1))
+    s"<part><name>${name}</name>=<value>(.*?)</value></part>".r.
+    findFirstMatchIn(content).map(_.group(1)).map(removeExtraInfo _).filterNot(_.isEmpty)
 
   def grepInt(content: String, name: String) = grepString(content, name) match {
     case Some(str) => try { Some(str.toInt) } catch { case _: Throwable => None }
