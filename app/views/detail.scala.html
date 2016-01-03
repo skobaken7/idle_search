@@ -1,0 +1,48 @@
+@(idle: models.Idle)(implicit messages: Messages)
+
+@main {
+  <div class="col-xs-6 center-block">
+    <table class="table table-bordered">
+      <tr>
+        <td class="info">@messages("column.name")</td>
+        <td>@idle.name</td>
+      </tr>
+      <tr>
+        <td class="info">@messages("column.kana")</td>
+        <td>@idle.kana</td>
+      </tr>
+      <tr>
+        <td class="info">@messages("column.birth")</td>
+        <td>@idle.birth</td>
+      </tr>
+
+      <tr>
+        <td class="info">@messages("column.height")</td>
+        <td>@idle.height</td>
+      </tr>
+
+      <tr>
+        <td class="info">@messages("column.weight")</td>
+        <td>@idle.weight</td>
+      </tr>
+
+      <tr>
+        <td class="info">@messages("column.bust")</td>
+        <td>@idle.bust</td>
+      </tr>
+      
+      <tr>
+        <td class="info">@messages("column.waist")</td>
+        <td>@idle.waist</td>
+      </tr>
+      <tr>
+        <td class="info">@messages("column.hip")</td>
+        <td>@idle.hip</td>
+      </tr>
+      <tr>
+        <td class="info">@messages("column.cup")</td>
+        <td>@idle.cup</td>
+      </tr>
+    </table>
+  </div>
+}

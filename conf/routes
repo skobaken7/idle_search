@@ -3,8 +3,9 @@
 # ~~~~
 
 # Home page
-GET     /          controllers.Application.search
-GET     /update_db controllers.Application.updateDB
+GET     /           controllers.Application.search
+GET     /detail/:id controllers.Application.detail(id: String)
+GET     /update_db  controllers.Application.updateDB
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

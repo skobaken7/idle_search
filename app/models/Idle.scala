@@ -68,5 +68,7 @@ trait IdleTable extends HasDatabaseConfig[JdbcProfile] {
     }
 
     def insertIdle(idle: Idle) = db.run(IdleQuery += idle)
+
+    def findById(id: String) = db.run(IdleQuery.filter(_.id === id).result).map(_.headOption)
   }
 }

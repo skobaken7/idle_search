@@ -44,6 +44,15 @@ class Application @Inject()(val messagesApi: MessagesApi) extends Controller wit
     )
   }
 
+  def detail(id: String) = Action.async { implicit request => 
+    Idles.findById(id).map{ idleOption => 
+      idleOption match {
+        case Some(idle) => Ok(views.html.detail(idle))
+        case None       => NotFound(messagesApi("message.notfound"))
+      }
+    }
+  }
+
   def updateDB = Action {
     UpdateDBBatch.run
     Ok("updated")

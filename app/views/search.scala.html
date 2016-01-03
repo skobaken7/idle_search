@@ -120,7 +120,7 @@
   <div class="row marketing">
     @for(idle <- idles) {
       <div class="col-xs-12 col-md-3">
-        <a href="#" class="thumbnail"> @idle.name (@idle.kana) </a>
+        <a href="@routes.Application.detail(idle.id)" class="thumbnail"> @idle.name (@idle.kana) </a>
       </div>
     }
   </div>

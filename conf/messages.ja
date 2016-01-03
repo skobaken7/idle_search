@@ -12,13 +12,16 @@ wikipedia.waist=ウエスト
 wikipedia.hip=ヒップ
 wikipedia.cup=カップ
 
-param.name=名前
-param.birth=生年月日
-param.height=身長
-param.weight=体重
-param.bust=バスト
-param.waist=ウエスト
-param.hip=ヒップ
-param.cup=カップ
+column.name=名前
+column.kana=かな
+column.birth=生年月日
+column.height=身長
+column.weight=体重
+column.bust=バスト
+column.waist=ウエスト
+column.hip=ヒップ
+column.cup=カップ
 
 form.submit=検索
+
+message.notfound=NotFound
