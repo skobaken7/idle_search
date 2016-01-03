@@ -40,8 +40,8 @@ class Application @Inject()(val messagesApi: MessagesApi) extends Controller wit
   def search = Action.async { implicit request => 
     val boundForm = form.bindFromRequest
     boundForm.fold(
-      formWithErrors => Future.successful(BadRequest(views.html.search(formWithErrors, List[Idle]()))),
-      userData => Future.successful(Ok(views.html.search(boundForm, List[Idle]())))
+      formWithErrors => Future.successful(BadRequest(views.html.search(formWithErrors, Seq[Idle]()))),
+      param => Idles.find(param).map(idles => Ok(views.html.search(boundForm, idles)))
     )
   }
 

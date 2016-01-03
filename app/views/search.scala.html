@@ -1,4 +1,4 @@
-@(form: Form[utils.Utils.Param], idles: List[models.Idle])(implicit messages: Messages)
+@(form: Form[utils.Utils.Param], idles: Seq[models.Idle])(implicit messages: Messages)
 
 @import utils.Utils._
 
@@ -10,13 +10,13 @@
     }
     @helper.input(form("birth")) { (id, name, value, htmlArgs) => 
       @helper.input(form(id)("from")) { (id, name, value, htmlArgs) => 
-        <div class="input-group col-sm-6 continue">
+        <div class="input-group col-xs-6 continue">
           <span class="input-group-addon">from</span>
           <input type="text" class="form-control" id="@id" name="@name" value="@value">
         </div>
       }
       @helper.input(form(id)("to")) { (id, name, value, htmlArgs) => 
-        <div class="input-group col-sm-6">
+        <div class="input-group col-xs-6">
           <span class="input-group-addon">to</span>
           <input type="text" class="form-control" id="@id" name="@name" value="@value">
         </div>
@@ -24,13 +24,13 @@
     }
     @helper.input(form("height")) { (id, name, value, htmlArgs) => 
       @helper.input(form(id)("from")) { (id, name, value, htmlArgs) => 
-        <div class="input-group col-sm-6 continue">
+        <div class="input-group col-xs-6 continue">
           <span class="input-group-addon">from</span>
           <input type="text" class="form-control" id="@id" name="@name" value="@value">
         </div>
       }
       @helper.input(form(id)("to")) { (id, name, value, htmlArgs) => 
-        <div class="input-group col-sm-6">
+        <div class="input-group col-xs-6">
           <span class="input-group-addon">to</span>
           <input type="text" class="form-control" id="@id" name="@name" value="@value">
         </div>
@@ -39,13 +39,13 @@
     }
     @helper.input(form("weight")) { (id, name, value, htmlArgs) => 
       @helper.input(form(id)("from")) { (id, name, value, htmlArgs) => 
-        <div class="input-group col-sm-6 continue">
+        <div class="input-group col-xs-6 continue">
           <span class="input-group-addon">from</span>
           <input type="text" class="form-control" id="@id" name="@name" value="@value">
         </div>
       }
       @helper.input(form(id)("to")) { (id, name, value, htmlArgs) => 
-        <div class="input-group col-sm-6">
+        <div class="input-group col-xs-6">
           <span class="input-group-addon">to</span>
           <input type="text" class="form-control" id="@id" name="@name" value="@value">
         </div>
@@ -54,13 +54,13 @@
     }
     @helper.input(form("bust")) { (id, name, value, htmlArgs) => 
       @helper.input(form(id)("from")) { (id, name, value, htmlArgs) => 
-        <div class="input-group col-sm-6 continue">
+        <div class="input-group col-xs-6 continue">
           <span class="input-group-addon">from</span>
           <input type="text" class="form-control" id="@id" name="@name" value="@value">
         </div>
       }
       @helper.input(form(id)("to")) { (id, name, value, htmlArgs) => 
-        <div class="input-group col-sm-6">
+        <div class="input-group col-xs-6">
           <span class="input-group-addon">to</span>
           <input type="text" class="form-control" id="@id" name="@name" value="@value">
         </div>
@@ -69,13 +69,13 @@
     }
     @helper.input(form("waist")) { (id, name, value, htmlArgs) => 
       @helper.input(form(id)("from")) { (id, name, value, htmlArgs) => 
-        <div class="input-group col-sm-6 continue">
+        <div class="input-group col-xs-6 continue">
           <span class="input-group-addon">from</span>
           <input type="text" class="form-control" id="@id" name="@name" value="@value">
         </div>
       }
       @helper.input(form(id)("to")) { (id, name, value, htmlArgs) => 
-        <div class="input-group col-sm-6">
+        <div class="input-group col-xs-6">
           <span class="input-group-addon">to</span>
           <input type="text" class="form-control" id="@id" name="@name" value="@value">
         </div>
@@ -84,13 +84,13 @@
     }
     @helper.input(form("hip")) { (id, name, value, htmlArgs) => 
       @helper.input(form(id)("from")) { (id, name, value, htmlArgs) => 
-        <div class="input-group col-sm-6 continue">
+        <div class="input-group col-xs-6 continue">
           <span class="input-group-addon">from</span>
           <input type="text" class="form-control" id="@id" name="@name" value="@value">
         </div>
       }
       @helper.input(form(id)("to")) { (id, name, value, htmlArgs) => 
-        <div class="input-group col-sm-6">
+        <div class="input-group col-xs-6">
           <span class="input-group-addon">to</span>
           <input type="text" class="form-control" id="@id" name="@name" value="@value">
         </div>
@@ -99,13 +99,13 @@
     }
     @helper.input(form("cup")) { (id, name, value, htmlArgs) => 
       @helper.input(form(id)("from")) { (id, name, value, htmlArgs) => 
-        <div class="input-group col-sm-6 continue">
+        <div class="input-group col-xs-6 continue">
           <span class="input-group-addon">from</span>
           <input type="text" class="form-control" id="@id" name="@name" value="@value">
         </div>
       }
       @helper.input(form(id)("to")) { (id, name, value, htmlArgs) => 
-        <div class="input-group col-sm-6">
+        <div class="input-group col-xs-6">
           <span class="input-group-addon">to</span>
           <input type="text" class="form-control" id="@id" name="@name" value="@value">
         </div>
@@ -114,14 +114,14 @@
 
     <button type="submit" class="btn btn-primary center-block">@messages("form.submit")</button>
   }
+}
 
-<div class="row marketing">
-  <div class="col-xs-6 col-md-3">
+<div>
+  <div class="row marketing">
     @for(idle <- idles) {
-      <a href="#" class="thumbnail">
-        @idle.name
-      </a>
+      <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail"> @idle.name </a>
+      </div>
     }
   </div>
 </div>
-}
